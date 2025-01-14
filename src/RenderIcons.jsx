@@ -295,4 +295,9 @@ All credits for the resources used in this portfolio are attributed to their res
 
 This website is non-commercial and freely accessible as a token of appreciation to the resource providers mentioned. 
 Please feel free to explore and benefit from the excellent opportunities they offer. 
+
+
+
+© 2025 Paul Rey Morales Cabas. All Rights Reserved.
+Please refrain from sharing any content or information from this portfolio website without the owner's permission.
 */

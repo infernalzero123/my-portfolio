@@ -70,12 +70,12 @@ export const App = () => {
               </div>
 
               {/* Navbar Links (Desktop) */}
-              <div className="hidden z-20 lg:flex space-x-8 items-center">
+              <div className="hidden z-20 lg:flex space-x-7 items-center">
                 <a
                   href="#home"
                   data-target="home"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal px-1 dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Home
                 </a>
@@ -83,7 +83,7 @@ export const App = () => {
                   href="#about"
                   data-target="about"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal px-1 dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
                   About Me
                 </a>
@@ -91,7 +91,7 @@ export const App = () => {
                   href="#knowledge"
                   data-target="knowledge"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal px-1 dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Knowladge
                 </a>
@@ -99,7 +99,7 @@ export const App = () => {
                   href="#education"
                   data-target="education"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal px-1 dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Education
                 </a>
@@ -107,7 +107,7 @@ export const App = () => {
                   href="#contact"
                   data-target="contact"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal px-1 dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Contact Me
                 </a>
@@ -116,7 +116,7 @@ export const App = () => {
                     handleImageClick(e);
                     setIsOpen(!isOpen);
                   }}
-                  className="font-medium text-slate-700 dark:text-slate-100 transition-colors delay-100 flex items-center"
+                  className="font-medium text-slate-700 px-1 dark:text-slate-100 transition-colors delay-100 flex items-center hover:scale-110"
                 >
                   <MilestoneIcon width={45} height={45} />
                 </a>
@@ -159,7 +159,7 @@ export const App = () => {
                   onClick={() => {
                     handleImageClick();
                   }}
-                  className="font-medium text-slate-700 dark:text-slate-100 transition-colors delay-100 flex items-center"
+                  className="font-medium text-slate-700 dark:text-slate-100 transition-colors delay-100 flex items-center hover:scale-110"
                 >
                   <MilestoneIcon width={45} height={45} />
                 </a>
@@ -292,7 +292,7 @@ export const App = () => {
 
       <section
         id="home"
-        className="min-h-screen w-full p-0 pt-20 bg-gradient-to-b from-purple-300/10 dark:from-purple-500/10 to-transparent"
+        className="min-h-screen w-full p-0 pt-20 bg-gradient-to-b from-purple-300/10 dark:from-sky-950/30 to-transparent"
       >
         <div className="py-2 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <div className="h-[15rem] bg-slate-600 rounded-3xl profilebg overflow-hidden relative">
@@ -463,16 +463,26 @@ export const App = () => {
               <PSIcon width={45} height={45} />
             </div>
             <div className="flex flex-wrap space-x-6 p-8">
-              <FontAwesomeIcon
-                icon="fa-brands fa-facebook"
-                size="2x"
-                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-sky-600"
-              />
-              <FontAwesomeIcon
-                icon="fa-brands fa-linkedin"
-                size="2x"
-                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-sky-800"
-              />
+              <div className="relative group">
+                <FontAwesomeIcon
+                  icon="fa-brands fa-facebook"
+                  size="2x"
+                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 hover:scale-125 hover:text-sky-600"
+                />
+                <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  Facebook
+                </div>
+              </div>
+              <div className="relative group">
+                <FontAwesomeIcon
+                  icon="fa-brands fa-linkedin"
+                  size="2x"
+                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 hover:scale-125 hover:text-sky-800"
+                />
+                <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  LinkedIn
+                </div>
+              </div>
               <div className="relative group">
                 <FontAwesomeIcon
                   icon="fa-brands fa-github"
@@ -500,13 +510,52 @@ export const App = () => {
       </section>
       <section
         id="skills"
-        className="h-screen w-full bg-slate-300 dark:bg-lime-800 p-0"
+        className="min-h-96 w-full bg-slate-300 dark:bg-lime-800 p-0"
       >
         <div className="h-full py-5 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <h1 className="text-gray-500 dark:text-gray-200">About Section</h1>
           <div className="h-5/6 bg-slate-600"></div>
         </div>
       </section>
+      <footer id="contact" className="relative min-h-[24rem] w-full p-0 m-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-opacity-40 dark:bg-opacity-80 z-10 p-0">
+          <div className="grid h-full w-full mx-auto shadow p-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 h-full w-full mx-auto shadow bg-zinc-900/95">
+              <div className="flex flex-col justify-center items-center h-full p-4 text-center bg-gradient-to-b from-sky-950/70 to-transparent">
+                <div className="flex flex-row justify-center items-center space-x-6">
+                  <ViteIcon width={35} height={35} />
+                  <ReactIcon width={35} height={45} />
+                  <JavascriptIcon width={35} height={35} />
+                  <TailwindCSSIcon width={60} height={60} />
+                  <FontAwesomeIcon
+                    icon="fa-solid fa-font-awesome"
+                    size="2x"
+                    className="text-sky-500"
+                  />
+                </div>
+                <p className="text-sm px-4 text-slate-100 mt-4">
+                  This website is built with Tailwind CSS, Vite, and React. It
+                  uses icons from the Fortawesome Free Icon Package and SVGs
+                  from free providers. All credits go to the respective owners.
+                  This non-commercial site is freely accessible as a token of
+                  appreciation to the resource providers. Enjoy exploring their
+                  offerings!
+                </p>
+              </div>
+              <div className="p-4">
+                <p className="text-sm text-center text-slate-100">
+                  Hello
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center lg:justify-end h-20 w-full font-normal text-center lg:text-right text-sm bg-zinc-900/95 text-slate-100 px-2 md:px-6 lg:px-8 lg:mx-auto">
+            <p className="transition-colors duration-0">
+              © 2025 Paul Rey Morales Cabas. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };

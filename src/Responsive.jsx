@@ -44,8 +44,8 @@ export const useResponsive = () => {
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
-      document.documentElement.style.backgroundColor = "rgb(51, 65, 85)";  // Dark mode background
-      document.body.style.backgroundColor = "rgb(51, 65, 85)";  // Dark mode background
+      document.documentElement.style.backgroundColor = "rgb(24, 24, 27, 80)";  // Dark mode background
+      document.body.style.backgroundColor = "rgb(24, 24, 27, 80)";  // Dark mode background
     } else {
       document.documentElement.classList.remove("dark");
       document.documentElement.style.backgroundColor = "rgb(226, 232, 240)";  // Light mode background
