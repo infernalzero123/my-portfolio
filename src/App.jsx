@@ -16,6 +16,7 @@ import {
   GithubIcon,
   VSCodeIcon,
   MysqlIcon,
+  PSIcon
 } from "./RenderIcons";
 
 const App = () => {
@@ -535,7 +536,7 @@ const App = () => {
               <GithubIcon width={45} height={45} />
               <VSCodeIcon width={45} height={45} />
               <MysqlIcon width={45} height={45} />
-              <MysqlIcon width={45} height={45} />
+              <PSIcon width={45} height={45} />
             </div>
             <div className="flex flex-wrap space-x-6 p-8">
               <FontAwesomeIcon

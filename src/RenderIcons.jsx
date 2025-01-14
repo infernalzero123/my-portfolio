@@ -234,6 +234,22 @@ MysqlIcon.propTypes = {
   height: PropTypes.number,
 };
 
+export const PSIcon = ({ width, height }) => (
+  <a href="https://www.adobe.com/ph_en/" target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://www.svgrepo.com/show/303170/adobe-photoshop-cs6-logo.svg"
+      alt="MySQL Logo"
+      width={width}
+      height={height}
+    />
+  </a>
+);
+
+PSIcon.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
+
 /*
 https://www.svgrepo.com/show/452091/python.svg
 https://www.svgrepo.com/show/303208/php-1-logo.svg
@@ -246,6 +262,11 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/640
 https://www.svgrepo.com/show/512317/github-142.svg
 https://www.svgrepo.com/show/374171/vscode.svg
 https://www.svgrepo.com/show/303251/mysql-logo.svg
+https://www.svgrepo.com/show/303170/adobe-photoshop-cs6-logo.svg
+
+
+
+https://commons.wikimedia.org/wiki/File:Wondershare_filmora_logo.svg
 */
 
 /*
