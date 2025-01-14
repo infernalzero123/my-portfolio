@@ -521,12 +521,15 @@ export const App = () => {
           <div className="h-5/6 bg-slate-600"></div>
         </div>
       </section>
-      <section id="education" className="min-h-96 w-full p-0">
-        <div className="h-full py-5 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
-          <h1 className="text-gray-500 dark:text-gray-200">About Section</h1>
-          <div className="flex flex-col h-96 items-center justify-center bg-slate-600">
+      <section
+        id="education"
+        className="relative min-h-[24rem] w-full flex items-center justify-center p-0 m-0"
+      >
+        <div className="absolute inset-0 w-full h-full bg-zinc-800 bg-opacity-40 dark:bg-opacity-80 z-10"></div>
+        <div className="relative z-20 w-full max-w-6xl mx-auto p-4">
+          <div className="shadow-lg overflow-hidden bg-zinc-900/95">
             <div className="App">
-              <Carousel />
+              <Carousel className/>
             </div>
           </div>
         </div>

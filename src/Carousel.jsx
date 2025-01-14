@@ -1,10 +1,13 @@
 import { useState } from "react";
+import PropTypes from "prop-types"; // Import PropTypes
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
-const Carousel = () => {
+const Carousel = ({ className = "" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    "../src/img/plmun.jpg",
+    "../src/img/plmun1.jpg",
     "../src/img/annex.jpg",
     "../src/img/main.jpeg",
   ];
@@ -22,7 +25,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg">
+    <div className={`relative w-full max-w-4xl mx-auto overflow-hidden ${className}`}>
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{
@@ -43,25 +46,30 @@ const Carousel = () => {
       <button
         onClick={goToPrev}
         disabled={currentIndex === 0}
-        className={`absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full ${
-          currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
+        className={`absolute top-1/2 left-1 text-white rounded-full ${
+          currentIndex === 0 ? "opacity-0" : ""
         }`}
       >
-        &#8249;
+        <FontAwesomeIcon icon={faChevronLeft} className="text-3xl"/>
       </button>
 
       {/* Right Arrow */}
       <button
         onClick={goToNext}
         disabled={currentIndex === images.length - 1}
-        className={`absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full ${
-          currentIndex === images.length - 1 ? "opacity-50 cursor-not-allowed" : ""
+        className={`absolute top-1/2 right-1 text-white rounded-full ${
+          currentIndex === images.length - 1 ? "opacity-0" : ""
         }`}
       >
-        &#8250;
+        <FontAwesomeIcon icon={faChevronRight} className="text-3xl"/>
       </button>
     </div>
   );
+};
+
+// Define prop types
+Carousel.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Carousel;
