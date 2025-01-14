@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import "./App.css";
+import { useResponsive } from "./Responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faHome } from "@fortawesome/free-solid-svg-icons";
+//import { faCoffee, faHome } from "@fortawesome/free-solid-svg-icons";
 import {
   ViteIcon,
   ReactIcon,
@@ -16,140 +16,23 @@ import {
   GithubIcon,
   VSCodeIcon,
   MysqlIcon,
-  PSIcon
+  PSIcon,
 } from "./RenderIcons";
+import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faCoffee, faHome } from "@fortawesome/free-solid-svg-icons";
 
-const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isTop, setIsTop] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const isMobileOrMedium = () => window.innerWidth <= 1024;
-  const [isImageClicked, setIsImageClicked] = useState(false);
-
-  // Menu Open
-  useEffect(() => {
-    const handleResize = () => {
-      if (!isMobileOrMedium() && isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    if (!isMobileOrMedium() && isOpen) {
-      setIsOpen(false);
-    }
-
-    if (isMobileOrMedium()) {
-      if (isOpen) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "auto";
-      }
-      return () => {
-        document.body.style.overflow = "auto";
-      };
-    }
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isOpen]);
-
-  // Dark Mode Toggler
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      document.documentElement.style.backgroundColor = "rgb(51, 65, 85)";
-      document.body.style.backgroundColor = "rgb(51, 65, 85)";
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.style.backgroundColor = "rgb(226, 232, 240)";
-      document.body.style.backgroundColor = "rgb(226, 232, 240)";
-    }
-  }, [isDarkMode]);
-
-  useEffect(() => {
-    const updateBorderColors = () => {
-      const links = document.querySelectorAll("a[data-target]");
-      let activeLink = null;
-
-      // Find the active link based on scroll position
-      links.forEach((link) => {
-        const targetId = link.getAttribute("data-target");
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-          const rect = targetElement.getBoundingClientRect();
-          if (
-            rect.top <= window.innerHeight / 2 &&
-            rect.bottom >= window.innerHeight / 2
-          ) {
-            activeLink = link;
-          }
-        }
-      });
-
-      // Update border color for all links
-      links.forEach((link) => {
-        link.style.borderColor =
-          link === activeLink
-            ? isDarkMode
-              ? "rgb(71 85 105)" // Dark mode color
-              : "rgb(186 230 253)" // Light mode color
-            : "transparent"; // Fallback for non-active links
-      });
-    };
-
-    // Initial border color update
-    updateBorderColors();
-
-    // Update border colors on scroll
-    window.addEventListener("scroll", updateBorderColors);
-
-    return () => {
-      window.removeEventListener("scroll", updateBorderColors);
-    };
-  }, [isDarkMode]);
-
-  const handleLinkClick = (event) => {
-    event.preventDefault();
-
-    const targetId = event.target.getAttribute("data-target");
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 4 * 16, // Offset for smooth scroll
-        behavior: "smooth",
-      });
-    }
-  };
-
-  // Scroll Event Listener
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log("Scroll position:", window.scrollY);
-
-      if (window.scrollY > 80) {
-        setIsTop(true);
-      } else {
-        setIsTop(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleImageClick = () => {
-    setIsImageClicked(true);
-  };
-
-  const handleClose = () => {
-    setIsImageClicked(false);
-  };
+export const App = () => {
+  const {
+    isDarkMode,
+    setIsDarkMode,
+    isTop,
+    isOpen,
+    setIsOpen,
+    isImageClicked,
+    handleLinkClick,
+    handleImageClick,
+    handleClose,
+  } = useResponsive();
 
   return (
     <>
@@ -189,7 +72,7 @@ const App = () => {
                   href="#home"
                   data-target="home"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-500"
+                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Home
                 </a>
@@ -197,7 +80,7 @@ const App = () => {
                   href="#about"
                   data-target="about"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-500"
+                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
                 >
                   About
                 </a>
@@ -205,7 +88,7 @@ const App = () => {
                   href="#skills"
                   data-target="skills"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-500"
+                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Skills
                 </a>
@@ -540,12 +423,22 @@ const App = () => {
             </div>
             <div className="flex flex-wrap space-x-6 p-8">
               <FontAwesomeIcon
+                icon={faHome}
+                size="2x"
+                className="text-slate-700 dark:text-slate-200"
+              />
+              <FontAwesomeIcon
                 icon={faCoffee}
                 size="2x"
                 className="text-slate-700 dark:text-slate-200"
               />
               <FontAwesomeIcon
-                icon={faHome}
+                icon={faFacebook}
+                size="2x"
+                className="text-slate-700 dark:text-slate-200"
+              />
+              <FontAwesomeIcon
+                icon={faGoogle}
                 size="2x"
                 className="text-slate-700 dark:text-slate-200"
               />
