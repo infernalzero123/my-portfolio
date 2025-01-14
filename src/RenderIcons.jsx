@@ -263,11 +263,9 @@ https://www.svgrepo.com/show/512317/github-142.svg
 https://www.svgrepo.com/show/374171/vscode.svg
 https://www.svgrepo.com/show/303251/mysql-logo.svg
 https://www.svgrepo.com/show/303170/adobe-photoshop-cs6-logo.svg
-
-
-
 https://commons.wikimedia.org/wiki/File:Wondershare_filmora_logo.svg
-https://commons.wikimedia.org/wiki/File:Wondershare_filmora_logo.svg
+https://commons.wikimedia.org/wiki/File:C-Sharp_Logo.svg
+https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Microsoft_Office_Access_%282019-present%29.svg/640px-Microsoft_Office_Access_%282019-present%29.svg.png
 */
 
 /*
