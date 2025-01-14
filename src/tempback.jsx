@@ -108,7 +108,7 @@ export const App = () => {
                   className="p-2 mt-1 text-slate-700 bg-slate-100 dark:text-sky-100 dark:bg-slate-800 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
                 >
                   <svg
-                    className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-110 ${
+                    className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-125 ${
                       isDarkMode ? "rotate-0" : "rotate-45"
                     }`}
                     xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ export const App = () => {
                   className="p-2 text-slate-700 dark:text-slate-100 dark:bg-slate-800 bg-slate-100 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
                 >
                   <svg
-                    className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-110 ${
+                    className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-125 ${
                       isDarkMode ? "rotate-0" : "rotate-45"
                     }`}
                     xmlns="http://www.w3.org/2000/svg"
@@ -269,7 +269,7 @@ export const App = () => {
                 {isImageClicked && (
                   <div className="fixed inset-0 z-20 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center overflow-y-auto overflow-x-hidden">
                     <div className="relative max-w-7xl mix-h-96 mx-auto my-auto py-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10">
-                      <div className="absolute top-0 right-10 hover:scale-110">
+                      <div className="absolute top-0 right-10 hover:scale-125">
                         <button
                           onClick={handleClose}
                           className="font-thin text-white text-[3rem] lg:text-[4rem]"
@@ -427,23 +427,23 @@ export const App = () => {
               <FontAwesomeIcon
                 icon="fa-brands fa-facebook"
                 size="2x"
-                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-110 hover:text-sky-600"
+                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-sky-600"
               />
               <FontAwesomeIcon
                 icon="fa-brands fa-linkedin"
                 size="2x"
-                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-110 hover:text-orange-500"
+                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-orange-500"
               />
               <FontAwesomeIcon
                 icon="fa-brands fa-github"
                 size="2x"
-                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-110 hover:text-orange-500"
+                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-orange-500"
               />
               <div className="relative group">
                 <FontAwesomeIcon
                   icon="fa-regular fa-envelope"
                   size="2x"
-                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transform hover:scale-110 hover:text-orange-500"
+                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transform hover:scale-125 hover:text-orange-500"
                 />
                 <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Email

@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 // Your existing code in Responsive.jsx
 
 export const useResponsive = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("isDarkMode") === "true";
+  });
   const [isTop, setIsTop] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const isMobileOrMedium = () => window.innerWidth <= 1024;
@@ -42,13 +44,16 @@ export const useResponsive = () => {
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
-      document.documentElement.style.backgroundColor = "rgb(51, 65, 85)";
-      document.body.style.backgroundColor = "rgb(51, 65, 85)";
+      document.documentElement.style.backgroundColor = "rgb(51, 65, 85)";  // Dark mode background
+      document.body.style.backgroundColor = "rgb(51, 65, 85)";  // Dark mode background
     } else {
       document.documentElement.classList.remove("dark");
-      document.documentElement.style.backgroundColor = "rgb(226, 232, 240)";
-      document.body.style.backgroundColor = "rgb(226, 232, 240)";
+      document.documentElement.style.backgroundColor = "rgb(226, 232, 240)";  // Light mode background
+      document.body.style.backgroundColor = "rgb(226, 232, 240)";  // Light mode background
     }
+
+    // Save dark mode preference to localStorage
+    localStorage.setItem("isDarkMode", isDarkMode);
   }, [isDarkMode]);
 
   useEffect(() => {
