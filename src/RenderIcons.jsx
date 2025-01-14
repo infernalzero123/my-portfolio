@@ -128,8 +128,8 @@ TypescriptIcon.propTypes = {
   height: PropTypes.number,
 };
 
-// Cplusplus Component
-export const CPP = ({ width, height }) => (
+// CPPIcon Component
+export const CPPIcon = ({ width, height }) => (
   <a href="https://isocpp.org/" target="_blank" rel="noopener noreferrer">
     <img
       src="https://cdn-icons-png.flaticon.com/128/6132/6132222.png"
@@ -140,7 +140,7 @@ export const CPP = ({ width, height }) => (
   </a>
 );
 
-CPP.propTypes = {
+CPPIcon.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
 };

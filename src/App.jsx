@@ -10,7 +10,7 @@ import {
   JavaIcon,
   JavascriptIcon,
   TypescriptIcon,
-  CPP,
+  CPPIcon,
   TailwindCSSIcon,
   BootstrapIcon,
   GithubIcon,
@@ -529,7 +529,7 @@ const App = () => {
               <JavaIcon width={45} height={45} />
               <JavascriptIcon width={45} height={45} />
               <TypescriptIcon width={45} height={45} />
-              <CPP width={45} height={45} />
+              <CPPIcon width={45} height={45} />
               <TailwindCSSIcon width={45} height={45} />
               <BootstrapIcon width={45} height={45} />
               <GithubIcon width={45} height={45} />
