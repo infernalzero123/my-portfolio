@@ -1,5 +1,5 @@
-//import { useState, useEffect } from "react";
 import "./App.css";
+import { useResponsive } from "./Responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee, faHome } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -16,10 +16,8 @@ import {
   GithubIcon,
   VSCodeIcon,
   MysqlIcon,
-  PSIcon
+  PSIcon,
 } from "./RenderIcons";
-
-import { useResponsive } from "./Responsive";
 
 const App = () => {
   const {
@@ -31,7 +29,7 @@ const App = () => {
     isImageClicked,
     handleLinkClick,
     handleImageClick,
-    handleClose
+    handleClose,
   } = useResponsive();
 
   return (
@@ -72,7 +70,7 @@ const App = () => {
                   href="#home"
                   data-target="home"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-500"
+                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Home
                 </a>
@@ -80,7 +78,7 @@ const App = () => {
                   href="#about"
                   data-target="about"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-500"
+                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
                 >
                   About
                 </a>
@@ -88,7 +86,7 @@ const App = () => {
                   href="#skills"
                   data-target="skills"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-500"
+                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Skills
                 </a>
