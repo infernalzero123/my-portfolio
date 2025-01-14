@@ -24,8 +24,6 @@ import {
   PSIcon,
 } from "./RenderIcons";
 
-import { useState } from "react";
-
 export const App = () => {
   const {
     isDarkMode,
@@ -37,21 +35,13 @@ export const App = () => {
     handleLinkClick,
     handleImageClick,
     handleClose,
+    text,
+    showModal,
+    fadeOut,
+    handleChange,
+    handleSubmit,
+    maxLength,
   } = useResponsive();
-
-  const [text, setText] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const maxLength = 1000;
-
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    setShowModal(true); // Show the modal
-    setTimeout(() => setShowModal(false), 3000); // Hide modal after 3 seconds
-    setText(""); // Clear the textarea
-  };
 
   return (
     <>
@@ -602,17 +592,29 @@ export const App = () => {
                     </div>
                   </div>
                 </div>
-                <div className="relative w-full text-start">
+                <div className="w-full text-start">
                   <h1 className="text-lg text-slate-100 font-semibold">
                     Provide Feedback
                   </h1>
                   <form className="relative mt-8 w-full max-w-lg">
+                    {/* Modal notification */}
                     {showModal && (
-                      <div className="absolute bottom-0 right-0 text-center bg-green-500 text-white p-2 px-5 rounded shadow-md transition-opacity duration-500">
-                        Thank you for your feedback! {" "}
-                        <FontAwesomeIcon icon="fa-regular fa-face-grin-wink" className="text-xl my-auto" />
+                      <div
+                        className={`absolute bottom-0 right-0 text-center bg-green-500 text-white p-2 px-4 rounded shadow-md transition-opacity duration-1000 flex items-center space-x-1 ${
+                          fadeOut ? "opacity-0" : "opacity-100"
+                        }`}
+                      >
+                        <span>Thank you for your feedback!</span>
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Noto_Emoji_v2.034_263a.svg/640px-Noto_Emoji_v2.034_263a.svg.png"
+                          alt="Grinning Face Emoji"
+                          className="text-xl"
+                          style={{ width: "24px", height: "24px" }}
+                        />
                       </div>
                     )}
+
+                    {/* Textarea for user input */}
                     <textarea
                       className="w-full h-40 p-2 text-zinc-700 bg-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
                       placeholder="Write your feedback here..."
@@ -620,13 +622,22 @@ export const App = () => {
                       value={text}
                       onChange={handleChange}
                     ></textarea>
+
+                    {/* Character count */}
                     <div className="text-right text-sm text-zinc-500">
                       {text.length}/{maxLength} characters
                     </div>
+
+                    {/* Submit button */}
                     <button
                       type="button"
-                      className="mt-4 px-5 py-1 bg-rose-900 text-slate-100 font-thin rounded hover:bg-rose-800 transition duration-300"
+                      className={`mt-4 px-5 py-1 font-thin rounded transition duration-300 ${
+                        text.trim()
+                          ? "bg-rose-900 text-slate-100 hover:bg-rose-800"
+                          : "bg-gray-400 text-gray-200"
+                      }`}
                       onClick={handleSubmit}
+                      disabled={!text.trim()}
                     >
                       Submit
                     </button>
