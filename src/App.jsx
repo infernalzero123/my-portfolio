@@ -70,7 +70,7 @@ export const App = () => {
               </div>
 
               {/* Navbar Links (Desktop) */}
-              <div className="hidden z-20 lg:flex space-x-5 items-center">
+              <div className="hidden z-20 lg:flex space-x-8 items-center">
                 <a
                   href="#home"
                   data-target="home"
@@ -120,10 +120,9 @@ export const App = () => {
                 >
                   <MilestoneIcon width={45} height={45} />
                 </a>
-
                 <button
                   onClick={() => setIsDarkMode((prev) => !prev)}
-                  className="p-2 mt-1 text-slate-700 bg-slate-100 dark:text-sky-100 dark:bg-slate-800 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
+                  className="p-2 text-slate-700 bg-slate-100 dark:text-sky-100 dark:bg-slate-800 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
                 >
                   <svg
                     className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-125 ${
@@ -155,7 +154,15 @@ export const App = () => {
               </div>
 
               {/* Hamburger Menu (Mobile) */}
-              <div className="lg:hidden space-x-5">
+              <div className="lg:hidden flex items-center space-x-5">
+                <a
+                  onClick={() => {
+                    handleImageClick();
+                  }}
+                  className="font-medium text-slate-700 dark:text-slate-100 transition-colors delay-100 flex items-center"
+                >
+                  <MilestoneIcon width={45} height={45} />
+                </a>
                 <button
                   onClick={() => setIsDarkMode((prev) => !prev)}
                   className="p-2 text-slate-700 dark:text-slate-100 dark:bg-slate-800 bg-slate-100 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
@@ -187,6 +194,7 @@ export const App = () => {
                     )}
                   </svg>
                 </button>
+
                 <button
                   onClick={() => setIsOpen(!isOpen)}
                   className="p-2 text-slate-700 dark:text-slate-100 focus:outline-none rounded-lg transition-all duration-200 md:mr-10"
@@ -276,15 +284,6 @@ export const App = () => {
                 className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
               >
                 Contact Me
-              </a>
-              <a
-                onClick={(e) => {
-                  handleImageClick(e);
-                  setIsOpen(!isOpen);
-                }}
-                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
-              >
-                Milestones
               </a>
             </div>
           )}
