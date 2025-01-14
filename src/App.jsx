@@ -23,6 +23,73 @@ import {
   MysqlIcon,
   PSIcon,
 } from "./RenderIcons";
+import { useState } from "react";
+
+const Carousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [
+    "../src/img/plmun.jpg",
+    "../src/img/annex.jpg",
+    "../src/img/main.jpeg",
+  ];
+
+  const goToNext = () => {
+    if (currentIndex < images.length - 1) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  const goToPrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  return (
+    <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg">
+      <div
+        className="flex transition-transform duration-500 ease-in-out"
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+        }}
+      >
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Carousel Image ${index}`}
+            className="w-full flex-shrink-0"
+          />
+        ))}
+      </div>
+
+      {/* Left Arrow */}
+      <button
+        onClick={goToPrev}
+        disabled={currentIndex === 0} // Disable button at first image
+        className={`absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full ${
+          currentIndex === 0 ? "opacity-50" : ""
+        }`}
+      >
+        &#8249;
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={goToNext}
+        disabled={currentIndex === images.length - 1} // Disable button at last image
+        className={`absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full ${
+          currentIndex === images.length - 1
+            ? "opacity-50"
+            : ""
+        }`}
+      >
+        &#8250;
+      </button>
+    </div>
+  );
+};
 
 export const App = () => {
   const {
@@ -523,7 +590,11 @@ export const App = () => {
       <section id="education" className="min-h-96 w-full p-0">
         <div className="h-full py-5 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <h1 className="text-gray-500 dark:text-gray-200">About Section</h1>
-          <div className="h-5/6 bg-slate-600"></div>
+          <div className="flex flex-col h-96 items-center justify-center bg-slate-600">
+            <div className="App">
+              <Carousel />
+            </div>
+          </div>
         </div>
       </section>
       <footer id="contact" className="relative min-h-[24rem] w-full p-0 m-0">
