@@ -1,7 +1,11 @@
 import "./App.css";
 import { useResponsive } from "./Responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faCoffee, faHome } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fab, far, fas);
 import {
   ViteIcon,
   ReactIcon,
@@ -18,8 +22,6 @@ import {
   MysqlIcon,
   PSIcon,
 } from "./RenderIcons";
-import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { faCoffee, faHome } from "@fortawesome/free-solid-svg-icons";
 
 export const App = () => {
   const {
@@ -267,7 +269,7 @@ export const App = () => {
                 {isImageClicked && (
                   <div className="fixed inset-0 z-20 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center overflow-y-auto overflow-x-hidden">
                     <div className="relative max-w-7xl mix-h-96 mx-auto my-auto py-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10">
-                      <div className="absolute top-0 right-10 hover:scale-125">
+                      <div className="absolute top-0 right-10 hover:scale-110">
                         <button
                           onClick={handleClose}
                           className="font-thin text-white text-[3rem] lg:text-[4rem]"
@@ -403,7 +405,7 @@ export const App = () => {
       >
         <div className="h-full py-5 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <h1 className="text-gray-500 dark:text-gray-200">About Section</h1>
-          <div className="h-5/6 bg-slate-600">
+          <div className="h-5/6 bg-white dark:bg-slate-700">
             <div className="flex flex-wrap space-x-6 p-8">
               {/* Render individual icons */}
               <ViteIcon width={45} height={45} />
@@ -423,25 +425,30 @@ export const App = () => {
             </div>
             <div className="flex flex-wrap space-x-6 p-8">
               <FontAwesomeIcon
-                icon={faHome}
+                icon="fa-brands fa-facebook"
                 size="2x"
-                className="text-slate-700 dark:text-slate-200"
+                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-110 hover:text-sky-600"
               />
               <FontAwesomeIcon
-                icon={faCoffee}
+                icon="fa-brands fa-linkedin"
                 size="2x"
-                className="text-slate-700 dark:text-slate-200"
+                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-110 hover:text-orange-500"
               />
               <FontAwesomeIcon
-                icon={faFacebook}
+                icon="fa-brands fa-github"
                 size="2x"
-                className="text-slate-700 dark:text-slate-200"
+                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-110 hover:text-orange-500"
               />
-              <FontAwesomeIcon
-                icon={faGoogle}
-                size="2x"
-                className="text-slate-700 dark:text-slate-200"
-              />
+              <div className="relative group">
+                <FontAwesomeIcon
+                  icon="fa-regular fa-envelope"
+                  size="2x"
+                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transform hover:scale-110 hover:text-orange-500"
+                />
+                <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Email
+                </div>
+              </div>
             </div>
           </div>
         </div>
