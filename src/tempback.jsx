@@ -59,7 +59,7 @@ export const App = () => {
                   <img
                     src="../src/img/shield.png"
                     alt=""
-                    className="w-12 h-12 text-2xl rounded-full rotate-[-45deg]"
+                    className="w-12 h-12 text-2xl rounded-full"
                   />
                 </a>
                 <a
@@ -115,7 +115,7 @@ export const App = () => {
                   onClick={handleLinkClick}
                   className="text-slate-700 font-normal px-1 dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
-                  Contact Me
+                  Contact
                 </a>
                 <a
                   onClick={(e) => {
@@ -128,7 +128,7 @@ export const App = () => {
                 </a>
                 <button
                   onClick={() => setIsDarkMode((prev) => !prev)}
-                  className="p-2 text-slate-700 bg-slate-100 dark:text-sky-100 dark:bg-slate-800 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
+                  className="p-2 text-slate-700 dark:text-slate-100 bg-transparent hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
                 >
                   <svg
                     className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-125 ${
@@ -171,7 +171,7 @@ export const App = () => {
                 </a>
                 <button
                   onClick={() => setIsDarkMode((prev) => !prev)}
-                  className="p-2 text-slate-700 dark:text-slate-100 dark:bg-zinc-700/30 bg-slate-100 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
+                  className="p-2 text-slate-700 dark:text-slate-100 bg-transparent hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
                 >
                   <svg
                     className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-125 ${
@@ -289,7 +289,7 @@ export const App = () => {
                 }}
                 className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-zinc-900"
               >
-                Contact Me
+                Contact
               </a>
             </div>
           )}
@@ -514,7 +514,13 @@ export const App = () => {
           </div>
         </div>
       </section>
-      <section id="skills" className="min-h-96 w-full p-0">
+      <section id="knowledge" className="min-h-96 w-full p-0">
+        <div className="h-full py-5 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
+          <h1 className="text-gray-500 dark:text-gray-200">About Section</h1>
+          <div className="h-5/6 bg-slate-600"></div>
+        </div>
+      </section>
+      <section id="education" className="min-h-96 w-full p-0">
         <div className="h-full py-5 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <h1 className="text-gray-500 dark:text-gray-200">About Section</h1>
           <div className="h-5/6 bg-slate-600"></div>
@@ -527,16 +533,47 @@ export const App = () => {
               <div className="relative flex flex-col justify-center items-center p-5 md:px-6 lg:px-8 text-center">
                 <div className="hidden lg:block absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-transparent via-zinc-300/50 to-transparent border-none"></div>
                 <div className="flex flex-row justify-center items-center space-x-8 mb-5">
-                  <ViteIcon width={35} height={35} />
-                  <ReactIcon width={35} height={45} />
-                  <JavascriptIcon width={35} height={35} />
-                  <TailwindCSSIcon width={60} height={60} />
-                  <FontAwesomeIcon
-                    icon="fa-solid fa-font-awesome"
-                    size="2x"
-                    className="text-sky-500"
-                  />
+                  <a
+                    href="https://vitejs.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ViteIcon width={35} height={35} />
+                  </a>
+                  <a
+                    href="https://reactjs.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ReactIcon width={35} height={45} />
+                  </a>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <JavascriptIcon width={35} height={35} />
+                  </a>
+                  <a
+                    href="https://tailwindcss.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TailwindCSSIcon width={60} height={60} />
+                  </a>
+                  <a
+                    href="https://fontawesome.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon
+                      icon="fa-solid fa-font-awesome"
+                      size="2x"
+                      className="text-sky-500"
+                    />
+                  </a>
                 </div>
+
                 <p className="text-sm px-4 text-slate-100">
                   This website is built with Tailwind CSS, Vite, and React. It
                   uses icons from the Fortawesome Free Icon Package and SVGs
@@ -555,9 +592,9 @@ export const App = () => {
                     <FontAwesomeIcon
                       icon="fa-brands fa-facebook"
                       size="2x"
-                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-sky-700"
+                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-sky-700 hover:shadow-lg hover:shadow-sky-700 rounded-full"
                     />
-                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       Facebook
                     </div>
                   </div>
@@ -565,9 +602,9 @@ export const App = () => {
                     <FontAwesomeIcon
                       icon="fa-brands fa-linkedin"
                       size="2x"
-                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-blue-800"
+                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-blue-800 hover:shadow-lg hover:shadow-blue-800"
                     />
-                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       LinkedIn
                     </div>
                   </div>
@@ -575,19 +612,20 @@ export const App = () => {
                     <FontAwesomeIcon
                       icon="fa-brands fa-github"
                       size="2x"
-                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-black"
+                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-black hover:shadow-lg hover:shadow-gray-600 rounded-full"
                     />
-                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       Github
                     </div>
                   </div>
+
                   <div className="relative group">
                     <FontAwesomeIcon
                       icon="fa-regular fa-envelope"
                       size="2x"
-                      className="text-slate-400 transition-transform duration-300 transform hover:scale-125 hover:text-rose-600"
+                      className="text-slate-400 transition-transform duration-300 transform hover:scale-125 hover:text-rose-600 hover:shadow-lg hover:shadow-rose-600 rounded"
                     />
-                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       Gmail
                     </div>
                   </div>
@@ -648,7 +686,7 @@ export const App = () => {
           </div>
           <div className="flex items-center justify-center lg:justify-end h-20 w-full font-normal text-center lg:text-right text-sm bg-zinc-900/95 text-slate-100 px-2 md:px-6 lg:px-8 lg:mx-auto">
             <p className="transition-colors duration-0">
-              © 2025 Paul Rey Morales Cabas. All Rights Reserved.
+              © 2025 Paul Rey Morales Cabas | Portfolio. All Rights Reserved.
             </p>
           </div>
         </div>
