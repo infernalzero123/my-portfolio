@@ -1,9 +1,26 @@
 import "react";
 import PropTypes from "prop-types";
 
-// Vite Icon Component with width and height props
+// MilestoneIcon Component
+export const MilestoneIcon = ({ width, height }) => (
+  <a target="_blank" rel="noopener noreferrer">
+    <img
+      src="https://www.svgrepo.com/show/401870/graduation-cap.svg" // Updated SVG link
+      alt="MilestoneIcon"
+      width={width}
+      height={height}
+    />
+  </a>
+);
+
+MilestoneIcon.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
+
+// ViteIcon Component
 export const ViteIcon = ({ width, height }) => (
-  <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/374167/vite.svg" // Updated SVG link
       alt="Vite Logo"
@@ -18,9 +35,9 @@ ViteIcon.propTypes = {
   height: PropTypes.number,
 };
 
-// React Icon Component
+// ReactIcon Component
 export const ReactIcon = ({ width, height }) => (
-  <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/354259/react.svg" // Example SVG link from SVG Repo
       alt="React Logo"
@@ -37,7 +54,7 @@ ReactIcon.propTypes = {
 
 // PythonIcon Component
 export const PythonIcon = ({ width, height }) => (
-  <a href="https://www.python.org" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/452091/python.svg"
       alt="Python Logo"
@@ -54,7 +71,7 @@ PythonIcon.propTypes = {
 
 // PhpIcon Component
 export const PhpIcon = ({ width, height }) => (
-  <a href="https://www.php.net" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/303208/php-1-logo.svg"
       alt="PHP Logo"
@@ -71,7 +88,7 @@ PhpIcon.propTypes = {
 
 // JavaIcon Component
 export const JavaIcon = ({ width, height }) => (
-  <a href="https://www.java.com" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/452234/java.svg"
       alt="Java Logo"
@@ -88,11 +105,7 @@ JavaIcon.propTypes = {
 
 // JavascriptIcon Component
 export const JavascriptIcon = ({ width, height }) => (
-  <a
-    href="https://www.javascript.com"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/353925/javascript.svg"
       alt="JavaScript Logo"
@@ -109,11 +122,7 @@ JavascriptIcon.propTypes = {
 
 // TypescriptIcon Component
 export const TypescriptIcon = ({ width, height }) => (
-  <a
-    href="https://www.typescriptlang.org"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/354478/typescript-icon.svg"
       alt="TypeScript Logo"
@@ -130,7 +139,7 @@ TypescriptIcon.propTypes = {
 
 // CPPIcon Component
 export const CPPIcon = ({ width, height }) => (
-  <a href="https://isocpp.org/" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://cdn-icons-png.flaticon.com/128/6132/6132222.png"
       alt="Node.js Logo"
@@ -147,7 +156,7 @@ CPPIcon.propTypes = {
 
 // TailwindCSSIcon Component
 export const TailwindCSSIcon = ({ width, height }) => (
-  <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/640px-Tailwind_CSS_Logo.svg.png"
       alt="Tailwind CSS Logo"
@@ -164,7 +173,7 @@ TailwindCSSIcon.propTypes = {
 
 // BootstrapIcon Component
 export const BootstrapIcon = ({ width, height }) => (
-  <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/640px-Bootstrap_logo.svg.png"
       alt="Bootstrap Logo"
@@ -181,7 +190,7 @@ BootstrapIcon.propTypes = {
 
 // GithubIcon Component
 export const GithubIcon = ({ width, height }) => (
-  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/512317/github-142.svg"
       alt="GitHub Logo"
@@ -198,11 +207,7 @@ GithubIcon.propTypes = {
 
 // VSCodeIcon Component
 export const VSCodeIcon = ({ width, height }) => (
-  <a
-    href="https://code.visualstudio.com"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/374171/vscode.svg"
       alt="VS Code Logo"
@@ -219,7 +224,7 @@ VSCodeIcon.propTypes = {
 
 // MysqlIcon Component
 export const MysqlIcon = ({ width, height }) => (
-  <a href="https://www.mysql.com" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/303251/mysql-logo.svg"
       alt="MySQL Logo"
@@ -235,7 +240,7 @@ MysqlIcon.propTypes = {
 };
 
 export const PSIcon = ({ width, height }) => (
-  <a href="https://www.adobe.com/ph_en/" target="_blank" rel="noopener noreferrer">
+  <a target="_blank" rel="noopener noreferrer">
     <img
       src="https://www.svgrepo.com/show/303170/adobe-photoshop-cs6-logo.svg"
       alt="MySQL Logo"

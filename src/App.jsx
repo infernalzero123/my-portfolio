@@ -7,6 +7,7 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 library.add(fab, far, fas);
 import {
+  MilestoneIcon,
   ViteIcon,
   ReactIcon,
   PythonIcon,
@@ -69,12 +70,12 @@ export const App = () => {
               </div>
 
               {/* Navbar Links (Desktop) */}
-              <div className="hidden z-20 lg:flex space-x- items-center">
+              <div className="hidden z-20 lg:flex space-x-5 items-center">
                 <a
                   href="#home"
                   data-target="home"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
                   Home
                 </a>
@@ -82,27 +83,44 @@ export const App = () => {
                   href="#about"
                   data-target="about"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
-                  About
+                  About Me
                 </a>
                 <a
-                  href="#skills"
-                  data-target="skills"
+                  href="#knowledge"
+                  data-target="knowledge"
                   onClick={handleLinkClick}
-                  className="text-slate-700 font-normal dark:text-slate-100 p-1 px-5 mt-2 border-b-4 transition-colors delay-100"
+                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
                 >
-                  Skills
+                  Knowladge
+                </a>
+                <a
+                  href="#education"
+                  data-target="education"
+                  onClick={handleLinkClick}
+                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
+                >
+                  Education
+                </a>
+                <a
+                  href="#contact"
+                  data-target="contact"
+                  onClick={handleLinkClick}
+                  className="text-slate-700 font-normal dark:text-slate-100 mt-2 border-b-4 transition-colors delay-100"
+                >
+                  Contact Me
                 </a>
                 <a
                   onClick={(e) => {
                     handleImageClick(e);
                     setIsOpen(!isOpen);
                   }}
-                  className="font-medium text-purple-900 dark:text-sky-400 p-1 px-5 mr-2 mt-2 border-b-4 border-slate-500/15"
+                  className="font-medium text-slate-700 dark:text-slate-100 transition-colors delay-100 flex items-center"
                 >
-                  Milestones
+                  <MilestoneIcon width={45} height={45} />
                 </a>
+
                 <button
                   onClick={() => setIsDarkMode((prev) => !prev)}
                   className="p-2 mt-1 text-slate-700 bg-slate-100 dark:text-sky-100 dark:bg-slate-800 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
@@ -235,7 +253,29 @@ export const App = () => {
                 }}
                 className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
               >
-                Skills
+                Knowledge
+              </a>
+              <a
+                href="#education"
+                data-target="education"
+                onClick={(e) => {
+                  handleLinkClick(e);
+                  setIsOpen(!isOpen);
+                }}
+                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
+              >
+                Education
+              </a>
+              <a
+                href="#contact"
+                data-target="contact"
+                onClick={(e) => {
+                  handleLinkClick(e);
+                  setIsOpen(!isOpen);
+                }}
+                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
+              >
+                Contact Me
               </a>
               <a
                 onClick={(e) => {
@@ -253,7 +293,7 @@ export const App = () => {
 
       <section
         id="home"
-        className="min-h-screen w-full p-0 pt-20 bg-gradient-to-b from-sky-500/5 dark:from-purple-500/10 to-transparent"
+        className="min-h-screen w-full p-0 pt-20 bg-gradient-to-b from-purple-300/10 dark:from-purple-500/10 to-transparent"
       >
         <div className="py-2 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <div className="h-[15rem] bg-slate-600 rounded-3xl profilebg overflow-hidden relative">
@@ -432,21 +472,27 @@ export const App = () => {
               <FontAwesomeIcon
                 icon="fa-brands fa-linkedin"
                 size="2x"
-                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-orange-500"
+                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-sky-800"
               />
-              <FontAwesomeIcon
-                icon="fa-brands fa-github"
-                size="2x"
-                className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transfor hover:scale-125 hover:text-orange-500"
-              />
+              <div className="relative group">
+                <FontAwesomeIcon
+                  icon="fa-brands fa-github"
+                  size="2x"
+                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 hover:scale-125 hover:text-black"
+                />
+                <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  Github
+                </div>
+              </div>
+
               <div className="relative group">
                 <FontAwesomeIcon
                   icon="fa-regular fa-envelope"
                   size="2x"
-                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transform hover:scale-125 hover:text-orange-500"
+                  className="text-slate-700 dark:text-slate-200 transition-transform duration-300 transform hover:scale-125 hover:text-rose-600"
                 />
-                <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Email
+                <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  Gmail
                 </div>
               </div>
             </div>

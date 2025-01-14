@@ -33,6 +33,13 @@ section {
   overflow: hidden;
 }
 
+.homebg {
+  background-image: url("./img/desk.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .profilebg {
   background-image: url("./img/otw1.jpg");
   background-position: center;
