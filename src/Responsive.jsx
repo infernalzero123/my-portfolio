@@ -1,4 +1,8 @@
+import { useState, useEffect } from "react";
 
+// Your existing code in Responsive.jsx
+
+export const useResponsive = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isTop, setIsTop] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +56,6 @@
       const links = document.querySelectorAll("a[data-target]");
       let activeLink = null;
 
-      // Find the active link based on scroll position
       links.forEach((link) => {
         const targetId = link.getAttribute("data-target");
         const targetElement = document.getElementById(targetId);
@@ -68,21 +71,18 @@
         }
       });
 
-      // Update border color for all links
       links.forEach((link) => {
         link.style.borderColor =
           link === activeLink
             ? isDarkMode
-              ? "rgb(71 85 105)" // Dark mode color
-              : "rgb(186 230 253)" // Light mode color
-            : "transparent"; // Fallback for non-active links
+              ? "rgb(71 85 105)"
+              : "rgb(186 230 253)"
+            : "transparent";
       });
     };
 
-    // Initial border color update
     updateBorderColors();
 
-    // Update border colors on scroll
     window.addEventListener("scroll", updateBorderColors);
 
     return () => {
@@ -104,7 +104,6 @@
     }
   };
 
-  // Scroll Event Listener
   useEffect(() => {
     const handleScroll = () => {
       console.log("Scroll position:", window.scrollY);
@@ -129,3 +128,16 @@
   const handleClose = () => {
     setIsImageClicked(false);
   };
+
+  return {
+    isDarkMode,
+    setIsDarkMode,
+    isTop,
+    isOpen,
+    setIsOpen,
+    isImageClicked,
+    handleLinkClick,
+    handleImageClick,
+    handleClose,
+  };
+};
