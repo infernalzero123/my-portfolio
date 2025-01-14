@@ -35,13 +35,19 @@ export const App = () => {
     handleLinkClick,
     handleImageClick,
     handleClose,
+    text,
+    showModal,
+    fadeOut,
+    handleChange,
+    handleSubmit,
+    maxLength,
   } = useResponsive();
 
   return (
     <>
       <div className="fixed z-20 top-0 left-0 w-full overflow-hidden pb-5">
         <nav
-          className={`bg-slate-100 dark:bg-slate-800 bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md transition-all duration-500 shadow ${
+          className={`bg-slate-100 dark:bg-zinc-800/70 bg-opacity-80 dark:bg-opacity-80 backdrop-blur-md transition-all duration-500 shadow ${
             isTop ? "rounded-none m-0" : "rounded-3xl mx-2 mt-2"
           }`}
         >
@@ -61,10 +67,10 @@ export const App = () => {
                   className="text-2xl font-mono text-sky-500 dark:text-slate-100 ml-2"
                 >
                   <span className="text-black font-light dark:text-sky-500">
-                    My:
+                    Pro
                   </span>
                   <span className="transition-colors duration-100">
-                    &lt;ProFile/&gt;
+                    {":"}File
                   </span>
                 </a>
               </div>
@@ -165,7 +171,7 @@ export const App = () => {
                 </a>
                 <button
                   onClick={() => setIsDarkMode((prev) => !prev)}
-                  className="p-2 text-slate-700 dark:text-slate-100 dark:bg-slate-800 bg-slate-100 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
+                  className="p-2 text-slate-700 dark:text-slate-100 dark:bg-zinc-700/30 bg-slate-100 hover:text-orange-400 hover:dark:text-sky-400 focus:outline-none rounded-lg transition-all duration-200"
                 >
                   <svg
                     className={`w-6 h-6 transition-transform duration-300 ease-in-out hover:scale-125 ${
@@ -237,7 +243,7 @@ export const App = () => {
                   handleLinkClick(e);
                   setIsOpen(!isOpen);
                 }}
-                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
+                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-zinc-900"
               >
                 Home
               </a>
@@ -248,7 +254,7 @@ export const App = () => {
                   handleLinkClick(e);
                   setIsOpen(!isOpen);
                 }}
-                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
+                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-zinc-900"
               >
                 About
               </a>
@@ -259,7 +265,7 @@ export const App = () => {
                   handleLinkClick(e);
                   setIsOpen(!isOpen);
                 }}
-                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
+                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-zinc-900"
               >
                 Knowledge
               </a>
@@ -270,7 +276,7 @@ export const App = () => {
                   handleLinkClick(e);
                   setIsOpen(!isOpen);
                 }}
-                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
+                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-zinc-900"
               >
                 Education
               </a>
@@ -281,7 +287,7 @@ export const App = () => {
                   handleLinkClick(e);
                   setIsOpen(!isOpen);
                 }}
-                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-slate-900"
+                className="block text-center w-full font-normal px-4 py-4 text-slate-700 hover:bg-gray-200 dark:text-slate-100 dark:hover:bg-zinc-900"
               >
                 Contact Me
               </a>
@@ -292,11 +298,11 @@ export const App = () => {
 
       <section
         id="home"
-        className="min-h-screen w-full p-0 pt-20 bg-gradient-to-b from-purple-300/10 dark:from-sky-950/30 to-transparent"
+        className="min-h-screen w-full p-0 pt-20 bg-gradient-to-b from-purple-300/10 dark:from-sky-950/40 to-transparent"
       >
         <div className="py-2 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <div className="h-[15rem] bg-slate-600 rounded-3xl profilebg overflow-hidden relative">
-            <div className="absolute inset-0 h-full w-full bg-slate-900 bg-opacity-30">
+            <div className="absolute inset-0 h-full w-full bg-slate-900 bg-opacity-40">
               {/* Profile Background Wallpaper */}
             </div>
           </div>
@@ -508,10 +514,7 @@ export const App = () => {
           </div>
         </div>
       </section>
-      <section
-        id="skills"
-        className="min-h-96 w-full bg-slate-300 dark:bg-lime-800 p-0"
-      >
+      <section id="skills" className="min-h-96 w-full p-0">
         <div className="h-full py-5 px-2 md:px-6 lg:px-8 max-w-7xl lg:mx-auto">
           <h1 className="text-gray-500 dark:text-gray-200">About Section</h1>
           <div className="h-5/6 bg-slate-600"></div>
@@ -519,10 +522,11 @@ export const App = () => {
       </section>
       <footer id="contact" className="relative min-h-[24rem] w-full p-0 m-0">
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-40 dark:bg-opacity-80 z-10 p-0">
-          <div className="grid h-full w-full mx-auto shadow p-0">
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-full w-full mx-auto shadow bg-zinc-900/95">
-              <div className="flex flex-col justify-center items-center h-full p-4 text-center bg-gradient-to-b from-sky-950/70 to-transparent">
-                <div className="flex flex-row justify-center items-center space-x-6">
+          <div className="grid w-full mx-auto shadow p-0 bg-zinc-900/95">
+            <div className="grid grid-cols-1 lg:grid-cols-2 w-full mx-auto shadow bg-gradient-to-b from-sky-950/70 to-transparent">
+              <div className="relative flex flex-col justify-center items-center p-5 md:px-6 lg:px-8 text-center">
+                <div className="hidden lg:block absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-transparent via-zinc-300/50 to-transparent border-none"></div>
+                <div className="flex flex-row justify-center items-center space-x-8 mb-5">
                   <ViteIcon width={35} height={35} />
                   <ReactIcon width={35} height={45} />
                   <JavascriptIcon width={35} height={35} />
@@ -533,7 +537,7 @@ export const App = () => {
                     className="text-sky-500"
                   />
                 </div>
-                <p className="text-sm px-4 text-slate-100 mt-4">
+                <p className="text-sm px-4 text-slate-100">
                   This website is built with Tailwind CSS, Vite, and React. It
                   uses icons from the Fortawesome Free Icon Package and SVGs
                   from free providers. All credits go to the respective owners.
@@ -542,10 +546,103 @@ export const App = () => {
                   offerings!
                 </p>
               </div>
-              <div className="p-4">
-                <p className="text-sm text-center text-slate-100">
-                  Hello
-                </p>
+              <div className="flex flex-col items-start h-full p-5 px-10 lg:px-16 text-center">
+                <h1 className="text-lg text-slate-100 font-semibold mb-3">
+                  Contact Me
+                </h1>
+                <div className="flex flex-row justify-center items-center space-x-8 mb-10">
+                  <div className="relative group">
+                    <FontAwesomeIcon
+                      icon="fa-brands fa-facebook"
+                      size="2x"
+                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-sky-700"
+                    />
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      Facebook
+                    </div>
+                  </div>
+                  <div className="relative group">
+                    <FontAwesomeIcon
+                      icon="fa-brands fa-linkedin"
+                      size="2x"
+                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-blue-800"
+                    />
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      LinkedIn
+                    </div>
+                  </div>
+                  <div className="relative group">
+                    <FontAwesomeIcon
+                      icon="fa-brands fa-github"
+                      size="2x"
+                      className="text-slate-400 transition-transform duration-300 hover:scale-125 hover:text-black"
+                    />
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      Github
+                    </div>
+                  </div>
+                  <div className="relative group">
+                    <FontAwesomeIcon
+                      icon="fa-regular fa-envelope"
+                      size="2x"
+                      className="text-slate-400 transition-transform duration-300 transform hover:scale-125 hover:text-rose-600"
+                    />
+                    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-max rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      Gmail
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full text-start">
+                  <h1 className="text-lg text-slate-100 font-semibold">
+                    Provide Feedback
+                  </h1>
+                  <form className="relative mt-8 w-full max-w-lg">
+                    {/* Modal notification */}
+                    {showModal && (
+                      <div
+                        className={`absolute bottom-0 right-0 text-center bg-green-500 text-white p-2 px-4 rounded shadow-md transition-opacity duration-1000 flex items-center space-x-1 ${
+                          fadeOut ? "opacity-0" : "opacity-100"
+                        }`}
+                      >
+                        <span>Thank you for your feedback!</span>
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Noto_Emoji_v2.034_263a.svg/640px-Noto_Emoji_v2.034_263a.svg.png"
+                          alt="Grinning Face Emoji"
+                          className="text-xl"
+                          style={{ width: "24px", height: "24px" }}
+                        />
+                      </div>
+                    )}
+
+                    {/* Textarea for user input */}
+                    <textarea
+                      className="w-full h-40 p-2 text-zinc-700 bg-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      placeholder="Write your feedback here..."
+                      maxLength={maxLength}
+                      value={text}
+                      onChange={handleChange}
+                    ></textarea>
+
+                    {/* Character count */}
+                    <div className="text-right text-sm text-zinc-500">
+                      {text.length}/{maxLength} characters
+                    </div>
+
+                    {/* Submit button */}
+                    <button
+                      type="button"
+                      className={`mt-4 px-5 py-1 font-thin rounded transition duration-300 ${
+                        text.trim()
+                          ? "bg-rose-900 text-slate-100 hover:bg-rose-800"
+                          : "bg-gray-400 text-gray-200"
+                      }`}
+                      onClick={handleSubmit}
+                      disabled={!text.trim()}
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

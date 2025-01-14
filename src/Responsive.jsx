@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-
-// Your existing code in Responsive.jsx
+import { useState, useEffect, useRef } from "react";
 
 export const useResponsive = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -10,6 +8,33 @@ export const useResponsive = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobileOrMedium = () => window.innerWidth <= 1024;
   const [isImageClicked, setIsImageClicked] = useState(false);
+  const [text, setText] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  const modalTimeoutRef = useRef(null);
+  const maxLength = 1000;
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    setText(""); // Clear the text input
+
+    if (!showModal) {
+      setShowModal(true);
+      setFadeOut(false); // Reset fade-out state when modal shows
+      modalTimeoutRef.current = setTimeout(() => {
+        setFadeOut(true); // Start fading out the modal after 5 seconds
+        setTimeout(() => setShowModal(false), 500); // Hide modal after fade-out duration
+      }, 5000);
+    }
+  };
+
+  useEffect(() => {
+    // Clear timeout if component unmounts or state changes unexpectedly
+    return () => clearTimeout(modalTimeoutRef.current);
+  }, []);
 
   // Menu Open
   useEffect(() => {
@@ -44,12 +69,12 @@ export const useResponsive = () => {
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
-      document.documentElement.style.backgroundColor = "rgb(24, 24, 27, 80)";  // Dark mode background
-      document.body.style.backgroundColor = "rgb(24, 24, 27, 80)";  // Dark mode background
+      document.documentElement.style.backgroundColor = "rgb(40, 40, 40)"; // Dark mode background
+      document.body.style.backgroundColor = "rgb(40, 40, 40)"; // Dark mode background
     } else {
       document.documentElement.classList.remove("dark");
-      document.documentElement.style.backgroundColor = "rgb(226, 232, 240)";  // Light mode background
-      document.body.style.backgroundColor = "rgb(226, 232, 240)";  // Light mode background
+      document.documentElement.style.backgroundColor = "rgb(226, 232, 240)"; // Light mode background
+      document.body.style.backgroundColor = "rgb(226, 232, 240)"; // Light mode background
     }
 
     // Save dark mode preference to localStorage
@@ -144,5 +169,11 @@ export const useResponsive = () => {
     handleLinkClick,
     handleImageClick,
     handleClose,
+    text,
+    showModal,
+    fadeOut,
+    handleChange,
+    handleSubmit,
+    maxLength,
   };
 };
